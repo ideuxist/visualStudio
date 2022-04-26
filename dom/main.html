@@ -44,9 +44,11 @@
         {id:101, name:'박길동',score: 90,age:23}
       ]
       data.forEach(function(val){
-        console.log(val);
+        // console.log(val);
+      document.getElementById('body').appendChild(makeTr(val));
+
       });
-      document.getElementById('body').appendChild(makeTr(data));
+      
     function saveFnc(e){
       //console.log(document.forms['frm'].elements[0].value)
       e.preventDefault();//기본 기능을 차단
@@ -66,8 +68,7 @@
         person.score = score;
         person.age = age;
      
-     
-      document.getElementById('body').appendChild(makeTr(person));
+        document.getElementById('body').appendChild(makeTr(person));
       
       //초기화
       document.forms['frm'].elements['uid'].value='';
