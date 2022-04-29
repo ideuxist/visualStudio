@@ -66,7 +66,7 @@ function makeTr(obj) {
  });
  let btn = document.createElement('button');//<button></button>
  btn.innerHTML = '삭제'
- 
+ document.getElementsByTagName
 
  let td = document.createElement('td');
  td.appendChild(btn);
