@@ -53,9 +53,12 @@
     let delBtn = document.getElementById('delete');
     delBtn.addEventListener('click',function(){
         let allTr = document.querySelectorAll('tbody>tr');
-        console.log(allTr);
+        console.log(typeof allTr); 
+        console.log(allTr); //tr 요소가 배열형태로 alltr에 저장되므로 alltr.childElement 등으로 접근불가
+                            //왜냐하면 alltr은 DOM 형식에서 말하는 node가 아니기 때문이다 
         allTr.forEach(function(tr){
-          console.log(tr.lastElementChild.firstElementChild)
+            console.log(tr)
+            console.log(tr.lastElementChild.firstElementChild)
           if (tr.lastElementChild.firstElementChild.checked==true){
               tr.remove();
           }
