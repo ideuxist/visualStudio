@@ -59,7 +59,7 @@
         allTr.forEach(function(tr){
             console.log(tr)
             console.log(tr.lastElementChild.firstElementChild)
-          if (tr.lastElementChild.firstElementChild.checked==true){
+          if (tr.lastElementChild.firstElementChild.checked==true){ //node 와 element 차이점
               tr.remove();
           }
         })

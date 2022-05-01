@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ajax/fetch.html</title>
+	<script></script>
+</head>
+
+<body>
+	<button id='chChk'>선택삭제</button>
+	<button id='allChk'>전체선택</button>
+	<table id="table" border="1">
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>홍길동</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>김길동</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>박길동</td>
+		</tr>
+	</table>
+
+
+	<script>
+		let findBtn = document.getElementById('chChk');
+		console.log(findBtn);
+		findBtn.addEventListener('click', del);
+
+		function del() {
+			let allTr = document.querySelectorAll('tr'); //table 하위에 있는 tr 다 가져오도록
+			console.log(typeof allTr);
+			//allTr.remove(); //alltr의 type은 object로 DOM 형식이 아님 그래서 remove 메서드 사용불가
+			allTr.forEach(function (tr) {
+				if (tr.firstElementChild.firstElementChild.checked == true) {
+					tr.remove();
+				}
+
+			});
+		}
+		// let findBtn2 = document.getElementById('allChk');
+		// findBtn2.addEventListener('click', function () {
+
+		// 	let allTr = document.querySelectorAll('input');
+		// 	allTr.forEach(function(tr){
+		// 		if(tr.checked == false){
+		// 			tr.checked=true;
+		// 		}
+		// 		})
+		// 		allTr.forEach(function(tr){
+		// 			if(tr.checked == true){
+		// 				tr.checked = true;
+		// 			}
+		// 		})
+
+		// 	});
+
+		//체크박스 전체선택 로직
+		let findBtn2 = document.getElementById('allChk');
+		findBtn2.addEventListener('click', function () {
+
+			let hit = 0;
+			let allTr = document.querySelectorAll('input')
+			allTr.forEach(function (tr) {
+			if (tr.checked == true) {
+					hit += 1;
+				}else {
+					tr.checked =true;
+				}
+			});
+			console.log(hit+'  '+allTr.length)	
+			if (hit == allTr.length) {
+
+					allTr.forEach(function (tr) {
+
+						tr.checked = false;
+					})
+				}
+			
+			})
+	
+
+
+
+
+
+
+
+
+
+		// 		if (tr.checked == true) {
+		// 			tr.checked = false;
+		// 			hit += 1
+		// 		}
+		// 		console.log(tr.checked+'  '+hit)
+
+		// 	});
+		// 	for (let i = 0; i < allTr.length; i++) {
+		// 		if (allTr[i].checked == false) {
+		// 			hit += 1
+		// 			console.log('alltr['+i+']='+allTr[i].checked)
+		// 			console.log(hit)
+
+		// 		}
+		// 		if (hit == allTr.length) {
+		// 			allTr.forEach(function (tr) {
+		// 				tr.checked = true;
+		// 			});
+		// 		}
+		// 	}
+		// })
+	</script>
+
+</body>
+
+</html>
